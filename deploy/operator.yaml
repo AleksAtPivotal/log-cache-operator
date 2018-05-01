@@ -1,0 +1,34 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: logcaches.app.pivotal.io
+spec:
+  group: app.pivotal.io
+  names:
+    kind: LogCache
+    listKind: LogCacheList
+    plural: logcaches
+    singular: logcache
+  scope: Namespaced
+  version: v1alpha1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logcache-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: logcache-operator
+  template:
+    metadata:
+      labels:
+        name: logcache-operator
+    spec:
+      containers:
+        - name: logcache-operator
+          image: quay.io/alekssaul/logcache-operator:v0.0.1
+          command:
+          - logcache-operator
+          imagePullPolicy: Always

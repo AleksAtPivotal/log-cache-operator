@@ -1,0 +1,3 @@
+apiVersion: app.pivotal.io/v1alpha1
+kind: LogCache
+projectName: logcache-operator
