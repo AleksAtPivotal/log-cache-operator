@@ -1,0 +1,11 @@
+apiVersion: "app.pivotal.io/v1alpha1"
+kind: "LogCache"
+metadata:
+  name: "example"
+spec:
+  logcache:
+    nodes: 1
+  logcachenozzle:
+    nodes: 1
+  logcachescheduler:
+    nodes: 1
