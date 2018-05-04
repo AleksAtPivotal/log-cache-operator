@@ -5,7 +5,7 @@ Based on operator-framework-sdk Log-Cache Operator operates a Log-Cache cluster 
 Create TLS assets
 
 ```sh
-docker run -it -v "$PWD/output:/output" loggregator/certs /bin/sh
+docker run -v "$PWD/output:/output" loggregator/certs
 kubectl create secret generic logcachenozzle-tls --from-file=./output
 kubectl create secret generic logcachescheduler-tls --from-file=./output
 ```
